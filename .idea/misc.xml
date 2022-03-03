@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/drawable/button_shape.xml" value="0.3323076923076923" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/drawable/categories.xml" value="0.3194444444444444" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/drawable/curve.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/drawable/ic_baseline_arrow_back_ios_new_24.xml" value="0.1" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1385" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_add_product_page.xml" value="0.335" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_barcode_scanning_page.xml" value="0.2734375" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_category_page.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_group_page.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_groups_page.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_home_page.xml" value="0.26855123674911663" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_intro.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_login.xml" value="0.24722222222222223" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_main.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_members_page.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_register.xml" value="0.21388888888888888" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/content_category_page.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/content_main.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_exp_products_.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_first.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_freash_products_.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_group__exp_products.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_group_freash_products.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_second.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/settings_activity.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/menu/menu_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/menu/options_menu.xml" value="0.375" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1921875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
