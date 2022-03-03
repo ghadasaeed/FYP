@@ -1,10 +1,13 @@
 package com.example.fyp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,7 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class login extends AppCompatActivity {
@@ -36,6 +42,7 @@ public class login extends AppCompatActivity {
         password = findViewById(R.id.password);
         login_btn = findViewById(R.id.Loginbtn);
         forgotpassword = findViewById(R.id.forgetPasswordbtn);
+        FAuth = FirebaseAuth.getInstance();
 
         callRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,9 +63,44 @@ public class login extends AppCompatActivity {
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(login.this, HomePage.class));
-                finish();
+            public void onClick(View v) {
+
+                Email = email.getEditText().getText().toString().trim();
+                Password = password.getEditText().getText().toString().trim();
+
+                if (isValid()){
+
+                    final ProgressDialog mDialog = new ProgressDialog(login.this);
+                    mDialog.setCanceledOnTouchOutside(false);
+                    mDialog.setCancelable(false);
+                    mDialog.setMessage("Login Please Wait........");
+                    mDialog.show();
+
+                    FAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (task.isSuccessful()){
+                                mDialog.dismiss();
+
+                                if (FAuth.getCurrentUser().isEmailVerified()){
+                                    mDialog.dismiss();
+                                    Toast.makeText(login.this, "Congratulation! You Have Successfully Login", Toast.LENGTH_SHORT).show();
+                                    Intent Z = new Intent(login.this,HomePage.class);
+                                    startActivity(Z);
+                                    finish();
+
+                                }else{
+                                    ReusableCodeForAll.ShowAlert(login.this,"Verification Failed", "You Have Not Verified Your Email");
+                                }
+                            }else{
+                                mDialog.dismiss();
+                                ReusableCodeForAll.ShowAlert(login.this,"Error", task.getException().getMessage());
+                            }
+                        }
+                    });
+                }
+
             }
         });
 
@@ -73,5 +115,38 @@ public class login extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this, e.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    String emailpattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+    public boolean isValid(){
+
+        email.setErrorEnabled(false);
+        email.setError("");
+        password.setErrorEnabled(false);
+        password.setError("");
+
+        boolean isvalid=false, isvalidemail=false, isvalidpassword=false;
+        if (TextUtils.isEmpty(Email)){
+            email.setErrorEnabled(true);
+            email.setError("Email is required");
+        }
+        else{
+            if (Email.matches(emailpattern)){
+                isvalidemail=true;
+            }else{
+                email.setErrorEnabled(true);
+                email.setError("Invalid Email Address");
+            }
+        }
+        if (TextUtils.isEmpty(Password)){
+
+            password.setErrorEnabled(true);
+            password.setError("Password is Required");
+        }else{
+            isvalidpassword=true;
+        }
+        isvalid= isvalidemail && isvalidpassword;
+        return isvalid;
     }
 }
