@@ -14,5 +14,8 @@ public class ProductDetails {
         ImageURL = imageURL;
         RandomUID = randomUID;
         UserId = userId;
+
+        //may need to add category ID
+
     }
 }

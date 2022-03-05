@@ -9,10 +9,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryPage extends AppCompatActivity {
 
@@ -20,6 +26,10 @@ public class CategoryPage extends AppCompatActivity {
     ViewPager viewPager;
     FloatingActionButton addButton;
     ImageView Backbtn;
+    DatabaseReference dataaa, databaseReference;
+    SwipeRefreshLayout swipeRefreshLayout;
+    SearchView searchView;
+    private List<UpdateProductModel> updateDishModelList;
     float v=0;
 
     @Override
@@ -36,6 +46,7 @@ public class CategoryPage extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("EXP"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Backbtn = findViewById(R.id.backbtn);
+        updateDishModelList = new ArrayList<>();
 
         Backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
