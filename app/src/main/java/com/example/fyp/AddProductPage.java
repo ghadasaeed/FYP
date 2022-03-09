@@ -36,6 +36,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.UUID;
 
@@ -52,12 +54,12 @@ public class AddProductPage extends AppCompatActivity {
     String RandomUId;
     String Email,Password;
 
-    String  productName, barcode, productExp, alarm;
-
-    ImageButton Imageupload;
+    String productCategory,productName, barcode, productExp, alarm,productShelfLife;
+//need to extract the product category from the title of the category
+    ImageButton imageButton;
     ImageView Backbtn;
     Button AddProductbtn;
-    TextInputLayout ProductName, ProductBarCode, ProductEXP;
+    TextInputLayout ProductName, ProductBarCode, ProductEXP,ProductShelfLife;
     Switch AlarmState;
     Uri imageuri;
     private Uri mCropimageuri;
@@ -81,7 +83,7 @@ public class AddProductPage extends AppCompatActivity {
         ProductBarCode = (TextInputLayout)findViewById(R.id.barcode);
         ProductEXP = (TextInputLayout)findViewById(R.id.productExp);
         AlarmState = (Switch)findViewById(R.id.alarm);
-
+    //    ProductShelfLife = ()findViewById(R.id.);
         Backbtn = findViewById(R.id.backbtn);
 
         try {
@@ -95,14 +97,14 @@ public class AddProductPage extends AppCompatActivity {
                     Email = userc.getEmailId();
                     Password = userc.getPassword();
 
-                    //for uploding an img
-//                    imageButton = (ImageButton) findViewById(R.id.imageupload);
-//                    imageButton.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            onSelectImageClick(v);
-//                        }
-//                    });
+
+                    imageButton = (ImageButton) findViewById(R.id.imageupload);
+                    imageButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onSelectImageClick(v);
+                        }
+                    });
 
 
                     AddProductbtn.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +190,7 @@ public class AddProductPage extends AppCompatActivity {
                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            ProductDetails info = new ProductDetails(productName, barcode, productExp, alarm, String.valueOf(uri), RandomUId, UserId);
+                            ProductDetails info = new ProductDetails( productCategory, productName, barcode, productExp, alarm, String.valueOf(uri), RandomUId, UserId,productShelfLife);
                             firebaseDatabase.getInstance().getReference("ProductDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -220,63 +222,63 @@ public class AddProductPage extends AppCompatActivity {
         }
     }
 
-//    private void onSelectImageClick(View v) {
-//
-//        CropImage.startPickImageActivity(this);
-//    }
-//
-//    @Override
-//    @SuppressLint("NewApi")
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//
-//
-//        if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-//            imageuri = CropImage.getPickImageResultUri(this, data);
-//
-//            if (CropImage.isReadExternalStoragePermissionsRequired(this, imageuri)) {
-//                mCropimageuri = imageuri;
-//                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
-//
-//            } else {
-//
-//                startCropImageActivity(imageuri);
-//            }
-//        }
-//
-//        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-//            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-//            if (resultCode == RESULT_OK) {
-//                ((ImageButton) findViewById(R.id.imageupload)).setImageURI(result.getUri());
-//                Toast.makeText(this, "Cropped Successfully", Toast.LENGTH_SHORT).show();
-//            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-//                Toast.makeText(this, "Cropping failed" + result.getError(), Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//
-//
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
-//
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-//                                           @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (mCropimageuri != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//            startCropImageActivity(mCropimageuri);
-//        } else {
-//            Toast.makeText(this, "cancelling,required permission not granted", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    private void startCropImageActivity(Uri imageuri) {
-//
-//        CropImage.activity(imageuri)
-//                .setGuidelines(CropImageView.Guidelines.ON)
-//                .setMultiTouchEnabled(true)
-//                .start(this);
-//
-//
-//    }
+    private void onSelectImageClick(View v) {
+
+        CropImage.startPickImageActivity(this);
+    }
+
+    @Override
+    @SuppressLint("NewApi")
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            imageuri = CropImage.getPickImageResultUri(this, data);
+
+            if (CropImage.isReadExternalStoragePermissionsRequired(this, imageuri)) {
+                mCropimageuri = imageuri;
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+
+            } else {
+
+                startCropImageActivity(imageuri);
+            }
+        }
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                ((ImageButton) findViewById(R.id.imageupload)).setImageURI(result.getUri());
+                Toast.makeText(this, "Cropped Successfully", Toast.LENGTH_SHORT).show();
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Toast.makeText(this, "Cropping failed" + result.getError(), Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (mCropimageuri != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            startCropImageActivity(mCropimageuri);
+        } else {
+            Toast.makeText(this, "cancelling,required permission not granted", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void startCropImageActivity(Uri imageuri) {
+
+        CropImage.activity(imageuri)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setMultiTouchEnabled(true)
+                .start(this);
+
+
+    }
 
 }

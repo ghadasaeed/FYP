@@ -44,6 +44,14 @@ public class login extends AppCompatActivity {
         forgotpassword = findViewById(R.id.forgetPasswordbtn);
         FAuth = FirebaseAuth.getInstance();
 
+            forgotpassword.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(login.this,ForgotPassword.class));
+                    finish();
+                }
+            });
+
         callRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +68,7 @@ public class login extends AppCompatActivity {
                 }
             }
         });
+
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,13 +113,7 @@ public class login extends AppCompatActivity {
             }
         });
 
-        forgotpassword.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(login.this,ForgotPassword.class));
-                    finish();
-                }
-        });
+
 
         }catch (Exception e){
             Toast.makeText(this, e.getMessage(),Toast.LENGTH_LONG).show();

@@ -21,6 +21,7 @@
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_main.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_members_page.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_register.xml" value="0.21388888888888888" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_user_password.xml" value="0.1" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/content_category_page.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/content_main.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_exp_products_.xml" value="0.3072916666666667" />
@@ -29,11 +30,12 @@
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_group__exp_products.xml" value="0.3072916666666667" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_group_freash_products.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_second.xml" value="0.32135416666666666" />
-        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/settings_activity.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/settings_activity.xml" value="0.29444444444444445" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/menu/menu_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/menu/options_menu.xml" value="0.375" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1287037037037037" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1921875" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/xml/root_preferences.xml" value="0.335" />
       </map>
     </option>
   </component>

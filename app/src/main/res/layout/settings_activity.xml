@@ -1,39 +1,254 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/settings"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-<!--        <CheckBoxPreference-->
-<!--            android:key="checkbox"-->
-<!--            android:summary="Tap to check if on or off"-->
-<!--            android:title="Checkbox Preference" />-->
-<!--        <RingtonePreference-->
-<!--            android:key="ringtone"-->
-<!--            android:showDefault="true"-->
-<!--            android:showSilent="true"-->
-<!--            android:summary="Pick a ringtone you like"-->
-<!--            android:title="Ringtone Preference" />-->
-<!--        <EditTextPreference-->
-<!--            android:dialogTitle="Enter a text"-->
-<!--            android:key="text"-->
-<!--            android:summary="Click to show a text entry dialog"-->
-<!--            android:title="EditText Preference" />-->
-<!--        <ListPreference-->
-<!--            android:dialogTitle="Select duration"-->
-<!--            android:entries="@array/settings_list_preference_titles"-->
-<!--            android:entryValues="@array/settings_list_preference_values"-->
-<!--            android:key="list"-->
-<!--            android:summary="Click to show a list to choose from"-->
-<!--            android:title="List Preference" />-->
-<!--        <SwitchPreference-->
-<!--            android:key="switch"-->
-<!--            android:title="Switch Preference"-->
-<!--            android:summary="Click to switch on or off"-->
-<!--            android:defaultValue="true"/>-->
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/settingTitle"
+            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/settingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/work_sans_semibold"
+            android:lineSpacingExtra="7sp"
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textColor="#24243F"
+            android:textSize="40sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="490dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <Switch
+                    android:id="@+id/notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/work_sans_semibold"
+                    android:text="Notification"
+                    android:textColor="@color/blueish"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/exportToExcel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:text="Export to excel"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+           />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/aboutApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:text="About App"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                   />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/privacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:text="Privacy Policy"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                   />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sendFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:text="Send Feedback"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+              />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:id="@+id/logout_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:text="Logout"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                   />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray"
+           />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
