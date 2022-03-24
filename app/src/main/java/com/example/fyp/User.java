@@ -10,10 +10,11 @@ public class User {
         ConfirmPassword = confirmPassword;
     }
 
+    public User(){}
+
     public String getEmailId() {
         return EmailId;
     }
-
     public String getPassword() {
         return Password;
     }

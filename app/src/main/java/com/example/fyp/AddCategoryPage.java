@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -14,12 +16,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,7 +26,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,10 +41,18 @@ import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.util.HashMap;
 import java.util.UUID;
 
-public class AddProductPage extends AppCompatActivity {
+public class AddCategoryPage extends AppCompatActivity {
 
+    ImageView BackBtn;
+    Button AddBtn;
+    TextInputLayout CategoryName;
+    String categoryName;
+    ImageButton imageButton;
+    Uri imageuri;
+    private Uri mCropimageuri;
     FirebaseStorage storage;
     StorageReference storageReference;
     FirebaseDatabase firebaseDatabase;
@@ -53,37 +62,30 @@ public class AddProductPage extends AppCompatActivity {
     StorageReference ref;
     String UserId;
     String RandomUId;
-    String Email,Password;
-    Spinner ShelfLife;
-    String productCategory,productName, barcode, productExp, alarm,shelfLife;
-//need to extract the product category from the title of the category
-    ImageButton imageButton;
-    ImageView Backbtn;
-    Button AddProductbtn;
-    TextInputLayout ProductName, ProductBarCode, ProductEXP;
-    Switch AlarmState;
-    Uri imageuri;
-    private Uri mCropimageuri;
-    //need to add the shelf life buttons or choises
+    String Email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //This Line will hide the status bar from the screen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_add_product_page);
+        setContentView(R.layout.activity_add_category_page);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+        AddBtn = (Button) findViewById(R.id.addbtn);
+        BackBtn = (ImageView) findViewById(R.id.backbtn);
+        CategoryName = (TextInputLayout) findViewById(R.id.categoryName);
+
         FAuth = FirebaseAuth.getInstance();
-        databaseReference = firebaseDatabase.getInstance().getReference("ProductDetails");
-        ShelfLife = (Spinner) findViewById(R.id.shelfLife); // add to the database
-        AddProductbtn = (Button) findViewById(R.id.addbtn);
-        ProductName = (TextInputLayout)findViewById(R.id.productName);
-        ProductBarCode = (TextInputLayout)findViewById(R.id.barcode);
-        ProductEXP = (TextInputLayout)findViewById(R.id.productExp);
-        AlarmState = (Switch)findViewById(R.id.alarm);
-        Backbtn = findViewById(R.id.backbtn);
+        databaseReference = firebaseDatabase.getInstance().getReference("Category");
+
+        BackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddCategoryPage.this, HomePage.class);
+                startActivity(intent);
+            }
+        });
 
         try {
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -92,10 +94,7 @@ public class AddProductPage extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     User userc = dataSnapshot.getValue(User.class);
-
                     Email = userc.getEmailId();
-                    Password = userc.getPassword();
-
                     imageButton = (ImageButton) findViewById(R.id.imageupload);
                     imageButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -105,15 +104,12 @@ public class AddProductPage extends AppCompatActivity {
                     });
 
 
-                    AddProductbtn.setOnClickListener(new View.OnClickListener() {
+                    AddBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
 
-                            shelfLife = ShelfLife.getSelectedItem().toString().trim();
-                            productName = ProductName.getEditText().getText().toString().trim();
-                            barcode = ProductBarCode.getEditText().getText().toString().trim();
-                            productExp = ProductEXP.getEditText().getText().toString().trim();
-                            alarm = AlarmState.getText().toString().trim();
+                            categoryName = CategoryName.getEditText().getText().toString().trim();
+
 
                             if (isValid()) {
                                 uploadImage();
@@ -132,51 +128,31 @@ public class AddProductPage extends AppCompatActivity {
 
             Log.e("Errrrrr: ", e.getMessage());
         }
-
-
-        Backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AddProductPage.this, CategoryPage.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
-    private boolean isValid() {
-        ProductName.setErrorEnabled(false);
-        ProductName.setError("");
-        ProductEXP.setErrorEnabled(false);
-        ProductEXP.setError("");
+        private boolean isValid() {
+        CategoryName.setErrorEnabled(false);
+        CategoryName.setError("");
 
-
-        boolean isValiDescription = false, isvalidQuantity = false, isvalid = false;
-        if (TextUtils.isEmpty(productName)) {
-            ProductName.setErrorEnabled(true);
-            ProductName.setError("Product Name is Required");
+        boolean isValiDescription = false, isvalid = false;
+        if (TextUtils.isEmpty(categoryName)) {
+            CategoryName.setErrorEnabled(true);
+            CategoryName.setError("Category Name is Required");
 
         } else {
 
-            ProductName.setError(null);
+            CategoryName.setError(null);
             isValiDescription = true;
         }
-        if (TextUtils.isEmpty(productExp)) {
-            ProductEXP.setErrorEnabled(true);
-            ProductEXP.setError("Product EXP is Required");
-        } else {
-            isvalidQuantity = true;
-        }
-
-        isvalid = (isValiDescription && isvalidQuantity ) ? true : false;
+        isvalid = (isValiDescription) ? true : false;
 
         return isvalid;
-    }
+         }
 
     private void uploadImage() {
 
         if (imageuri != null) {
-            final ProgressDialog progressDialog = new ProgressDialog(AddProductPage.this);
+            final ProgressDialog progressDialog = new ProgressDialog(AddCategoryPage.this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
             RandomUId = UUID.randomUUID().toString();
@@ -189,13 +165,14 @@ public class AddProductPage extends AppCompatActivity {
                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            ProductDetails info = new ProductDetails( productName, barcode, productExp, alarm, shelfLife, String.valueOf(uri), RandomUId, UserId);
-                            firebaseDatabase.getInstance().getReference("ProductDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
+                            Category info = new Category(categoryName, String.valueOf(uri), RandomUId, UserId);
+                            //may delete the UserId down here
+                            firebaseDatabase.getInstance().getReference("Category").child(Email).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressDialog.dismiss();
-                                    Toast.makeText(AddProductPage.this, "Product added successfully", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddCategoryPage.this, "Category added successfully", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }
@@ -207,7 +184,7 @@ public class AddProductPage extends AppCompatActivity {
                 public void onFailure(@NonNull Exception e) {
 
                     progressDialog.dismiss();
-                    Toast.makeText(AddProductPage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCategoryPage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -219,6 +196,7 @@ public class AddProductPage extends AppCompatActivity {
                 }
             });
         }
+
     }
 
     private void onSelectImageClick(View v) {
@@ -279,5 +257,6 @@ public class AddProductPage extends AppCompatActivity {
 
 
     }
+
 
 }

@@ -45,7 +45,7 @@ public class register extends AppCompatActivity {
         Register = (Button)findViewById(R.id.registerbtn);
         Login = (Button)findViewById(R.id.oldLogin);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Chef");
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
         FAuth = FirebaseAuth.getInstance();
 
         Register.setOnClickListener(new View.OnClickListener(){

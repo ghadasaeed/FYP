@@ -10,5 +10,20 @@
         <item>reply_all</item>
     </string-array>
 
+    <string-array name="ShelfLife">
+        <item></item>
+
+        <item>3 Days</item>
+        <item>9 Days</item>
+        <item>15 Days</item>
+
+        <item>3 M</item>
+        <item>6 M</item>
+        <item>9 M</item>
+
+        <item>12 M</item>
+        <item>24 M</item>
+        <item>36 M</item>
+    </string-array>
 
 </resources>

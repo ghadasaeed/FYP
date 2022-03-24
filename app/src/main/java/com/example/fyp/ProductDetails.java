@@ -2,11 +2,11 @@ package com.example.fyp;
 
 public class ProductDetails {
 
-    public String  ProductCategory, ProductName, ProductBarCode, ProductEXP, AlarmState,ImageURL, RandomUID, UserId,ProductShelfLife;
+    public String   ProductName, ProductBarCode, ProductEXP, AlarmState,ImageURL, RandomUID, UserId,ProductShelfLife;
 
-    public ProductDetails(String  productCategory,String productName, String productBarCode, String productEXP, String alarmState, String imageURL, String randomUID, String userId, String productShelfLife) {
+    public ProductDetails(String productName, String productBarCode, String productEXP, String alarmState,String productShelfLife, String imageURL, String randomUID, String userId) {
 
-        ProductCategory =  productCategory;
+
         ProductName = productName;
         ProductBarCode = productBarCode;
         ProductEXP = productEXP;
@@ -15,7 +15,6 @@ public class ProductDetails {
         ImageURL = imageURL;
         RandomUID = randomUID;
         UserId = userId;
-
         //may need to add category ID
     }
 
