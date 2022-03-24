@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FYP.NoActionBar">
         <activity
+            android:name=".groups.AddMembersPage"
+            android:exported="false" />
+        <activity
             android:name=".AddCategoryPage"
             android:exported="false" />
         <activity
@@ -31,8 +34,9 @@
         <activity
             android:name=".AddProductPage"
             android:exported="false" />
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/FiamUI.Card.ActionBar"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/FiamUI.Card.ActionBar" />
         <activity
             android:name=".SettingPage"
             android:exported="false" />

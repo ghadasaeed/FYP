@@ -167,7 +167,7 @@ public class AddCategoryPage extends AppCompatActivity {
                         public void onSuccess(Uri uri) {
                             Category info = new Category(categoryName, String.valueOf(uri), RandomUId, UserId);
                             //may delete the UserId down here
-                            firebaseDatabase.getInstance().getReference("Category").child(Email).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
+                            firebaseDatabase.getInstance().getReference("Category").child(UserId).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
