@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FYP.NoActionBar">
         <activity
+            android:name=".groups.AddGroupPage"
+            android:exported="false" />
+        <activity
             android:name=".groups.AddMembersPage"
             android:exported="false" />
         <activity

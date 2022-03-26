@@ -10,11 +10,14 @@ import android.widget.Button;
 
 import com.example.fyp.HomePage;
 import com.example.fyp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Groups_page extends AppCompatActivity {
 
     Button Backbtn;
     CardView Group1;
+    FloatingActionButton AddBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,16 @@ public class Groups_page extends AppCompatActivity {
 
         Backbtn = findViewById(R.id.backbtn);
         Group1 = findViewById(R.id.group1);
+        AddBtn = findViewById(R.id.addButton1);
 
+
+        AddBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(Groups_page.this, AddGroupPage.class);
+                startActivity(intent2);
+            }
+        });
         Backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
