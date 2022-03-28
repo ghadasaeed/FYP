@@ -32,7 +32,6 @@
             android:layout_marginTop="35dp"
             android:gravity="center"
             android:orientation="horizontal"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -59,7 +58,6 @@
                     android:textAlignment="center"
                     android:textColor="#24243F"
                     android:textSize="40sp"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +80,7 @@
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/view_pager"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     app:layout_constraintVertical_bias="0"
@@ -89,8 +88,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent=".9"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tab_layout"
-                    />
+                    app:layout_constraintTop_toBottomOf="@+id/tab_layout"/>
+
+
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_layout"
@@ -101,8 +101,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0"
-
                     />
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/recycler_view"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="526dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/view_pager"-->
+<!--                    tools:layout_editor_absoluteX="-2dp" />-->
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/addButton"
                     android:layout_width="wrap_content"

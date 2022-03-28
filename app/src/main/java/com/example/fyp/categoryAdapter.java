@@ -6,16 +6,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import java.security.AccessControlContext;
+import java.util.List;
+
 
 public class categoryAdapter extends FragmentPagerAdapter {
 
     private Context context;
     int totalTabs;
+//    private List<UpdateProductModel> updateProductModelList;
 
     public categoryAdapter(FragmentManager fm, Context context, int totalTabs) {
         super(fm);
         this.context = context;
         this.totalTabs = totalTabs;
+
     }
 
 

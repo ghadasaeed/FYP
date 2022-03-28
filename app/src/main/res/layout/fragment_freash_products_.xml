@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".freash_products_Fragment">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        >
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="1"
-        android:columnOrderPreserved="false"
-        android:alignmentMode="alignMargins"
-        android:layout_marginTop="30dp">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp"
-            >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="12dp"
+    android:layout_margin="12dp"
+    android:padding="5dp"
+    app:cardUseCompatPadding="true"
+    android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,7 +43,6 @@
                     android:layout_marginLeft="120dp"
                     app:cardCornerRadius="12dp"
                     app:cardBackgroundColor="#F5F7FA">
-
                     <TextView
                         android:id="@+id/remainingDays"
                         android:layout_width="match_parent"
@@ -76,65 +55,4 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp"
-           >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/productImg2"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:src="@drawable/nutela"
-                    android:layout_gravity="left"/>
-
-                <TextView
-                    android:id="@+id/productName2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:text="nutella" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="64dp"
-                    android:layout_height="61dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="120dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardBackgroundColor="#F5F7FA">
-
-                    <TextView
-                        android:id="@+id/remainingDays2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="2 Days"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </GridLayout>
-
-    </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+</androidx.cardview.widget.CardView>

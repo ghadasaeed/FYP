@@ -56,7 +56,7 @@ public class AddProductPage extends AppCompatActivity {
     String Email,Password;
     Spinner ShelfLife;
     String productCategory,productName, barcode, productExp, alarm,shelfLife;
-//need to extract the product category from the title of the category
+    //need to extract the product category from the title of the category
     ImageButton imageButton;
     ImageView Backbtn;
     Button AddProductbtn;
@@ -196,6 +196,8 @@ public class AddProductPage extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressDialog.dismiss();
                                     Toast.makeText(AddProductPage.this, "Product added successfully", Toast.LENGTH_SHORT).show();
+                                    //add finish the page after adding the product successfully
+                                    finish();
                                 }
                             });
                         }

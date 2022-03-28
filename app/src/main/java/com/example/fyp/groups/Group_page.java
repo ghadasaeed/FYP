@@ -1,5 +1,6 @@
 package com.example.fyp.groups;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -14,9 +15,20 @@ import com.example.fyp.AddProductPage;
 import com.example.fyp.CategoryPage;
 import com.example.fyp.HomePage;
 import com.example.fyp.R;
+import com.example.fyp.UpdateProductModel;
+import com.example.fyp.User;
 import com.example.fyp.categoryAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Group_page extends AppCompatActivity {
 
@@ -25,6 +37,11 @@ public class Group_page extends AppCompatActivity {
     FloatingActionButton addButton;
     ImageView Backbtn,MembersImg;
     float v=0;
+
+    private List<UpdateProductModel> updateProductModelList;//
+    private categoryAdapter adapter1;
+    String Email,Password;
+    DatabaseReference dataaa, databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +56,26 @@ public class Group_page extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Backbtn = findViewById(R.id.backbtn);
         MembersImg = findViewById(R.id.membersImg);
+
+//        updateProductModelList = new ArrayList<>();
+//        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        dataaa = FirebaseDatabase.getInstance().getReference("User").child(userid);
+//
+//        dataaa.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                User userc = dataSnapshot.getValue(User.class);
+//                Email = userc.getEmailId();
+//                Password = userc.getPassword();
+//                UserProducts();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         Backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,4 +138,27 @@ public class Group_page extends AppCompatActivity {
 
 
     }
+
+//    private void UserProducts(){
+//        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ProductDetails").child(useridd);
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                updateProductModelList.clear();
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    UpdateProductModel updateProductModel = snapshot.getValue(UpdateProductModel.class);
+//                    updateProductModelList.add(updateProductModel);
+//
+//                }
+////                adapter1 = new categoryAdapter(getContext(), updateProductModelList);
+////                ViewPager.setAdapter(adapter1);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 }
