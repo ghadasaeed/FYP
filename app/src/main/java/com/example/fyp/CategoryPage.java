@@ -67,24 +67,24 @@ public class CategoryPage extends AppCompatActivity {
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        dataaa = FirebaseDatabase.getInstance().getReference("User").child(userid);
-
-        dataaa.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                User userc = dataSnapshot.getValue(User.class);
-                Email = userc.getEmailId();
-                Password = userc.getPassword();
-                UserProducts();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        dataaa = FirebaseDatabase.getInstance().getReference("User").child(userid);
+//
+//        dataaa.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                User userc = dataSnapshot.getValue(User.class);
+//                Email = userc.getEmailId();
+//                Password = userc.getPassword();
+//                UserProducts();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         Backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,26 +143,26 @@ public class CategoryPage extends AppCompatActivity {
 
     }
 
-    private void UserProducts(){
-        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ProductDetails").child(useridd);
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                updateProductModelList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    UpdateProductModel updateProductModel = snapshot.getValue(UpdateProductModel.class);
-                    updateProductModelList.add(updateProductModel);
-
-                }
-//                adapter1 = new categoryAdapter(getContext(), updateProductModelList);
-//                ViewPager.setAdapter(adapter1);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    private void UserProducts(){
+//        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ProductDetails").child(useridd);
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                updateProductModelList.clear();
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    UpdateProductModel updateProductModel = snapshot.getValue(UpdateProductModel.class);
+//                    updateProductModelList.add(updateProductModel);
+//
+//                }
+////                adapter1 = new categoryAdapter(getContext(), updateProductModelList);
+////                ViewPager.setAdapter(adapter1);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 }

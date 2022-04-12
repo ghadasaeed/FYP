@@ -2,6 +2,8 @@ package com.example.fyp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -15,6 +17,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -22,6 +25,14 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.load.model.Model;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,9 +48,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.gson.JsonObject;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class AddProductPage extends AppCompatActivity {
@@ -65,6 +81,10 @@ public class AddProductPage extends AppCompatActivity {
     Uri imageuri;
     private Uri mCropimageuri;
     //need to add the shelf life buttons or choises
+    String URL = "/api/1234567890123";
+
+    ArrayList<Model> dataList = new ArrayList<>();
+    RecyclerView myRv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +104,31 @@ public class AddProductPage extends AppCompatActivity {
         ProductEXP = (TextInputLayout)findViewById(R.id.productExp);
         AlarmState = (Switch)findViewById(R.id.alarm);
         Backbtn = findViewById(R.id.backbtn);
+
+
+//        String URL = "/api/1234567890123";
+//        RequestQueue requestQueue= Volley.newRequestQueue(this);
+//        JsonObjectRequest objectRequest = new JsonObjectRequest(
+//                Request.Method.GET,
+//                URL, null,
+//                new Response.Listener<JSONObject>(){
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        Log.e("Rest Response",response.toString());
+//                    }
+//                },
+//            new Response.ErrorListener(){
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    Log.e("Rest Response",error.toString());
+//                }
+//            }
+//        );
+//
+//        requestQueue.add(objectRequest);
+
+
+
 
         try {
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -141,7 +186,6 @@ public class AddProductPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     private boolean isValid() {
@@ -280,6 +324,45 @@ public class AddProductPage extends AppCompatActivity {
                 .start(this);
 
 
+    }
+
+//    //calling the API
+//    private void json(){
+//
+//        String url ="/api/1234567890123";
+//
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        JSONArray jsonArray = response.getJSONArray();
+//
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                error.printStackTrace();
+//            }
+//        });
+//    }
+
+    public void parseApiData(){
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response) {
+
+                Log.e("Res : ",response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
 }

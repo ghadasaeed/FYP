@@ -85,4 +85,8 @@ dependencies {
     //color
    // implementation 'petrov.kristiyan:colorpicker-library:1.1.10'
 
+    //connect api
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.google.code.gson:gson:2.7'
+
 }

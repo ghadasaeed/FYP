@@ -48,11 +48,15 @@ public class AddCategoryPage extends AppCompatActivity {
 
     ImageView BackBtn;
     Button AddBtn;
+
     TextInputLayout CategoryName;
     String categoryName;
+
     ImageButton imageButton;
+
     Uri imageuri;
     private Uri mCropimageuri;
+
     FirebaseStorage storage;
     StorageReference storageReference;
     FirebaseDatabase firebaseDatabase;
@@ -62,7 +66,7 @@ public class AddCategoryPage extends AppCompatActivity {
     StorageReference ref;
     String UserId;
     String RandomUId;
-    String Email;
+    String Email,Password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,13 +75,14 @@ public class AddCategoryPage extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-
+        FAuth = FirebaseAuth.getInstance();
+        databaseReference = firebaseDatabase.getInstance().getReference("Category");
         AddBtn = (Button) findViewById(R.id.addbtn);
         BackBtn = (ImageView) findViewById(R.id.backbtn);
         CategoryName = (TextInputLayout) findViewById(R.id.categoryName);
 
-        FAuth = FirebaseAuth.getInstance();
-        databaseReference = firebaseDatabase.getInstance().getReference("Category");
+
+
 
         BackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +99,10 @@ public class AddCategoryPage extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     User userc = dataSnapshot.getValue(User.class);
+
                     Email = userc.getEmailId();
+                    Password = userc.getPassword();
+
                     imageButton = (ImageButton) findViewById(R.id.imageupload);
                     imageButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -128,7 +136,7 @@ public class AddCategoryPage extends AppCompatActivity {
 
             Log.e("Errrrrr: ", e.getMessage());
         }
-    }
+  }
 
         private boolean isValid() {
         CategoryName.setErrorEnabled(false);
@@ -166,13 +174,14 @@ public class AddCategoryPage extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             Category info = new Category(categoryName, String.valueOf(uri), RandomUId, UserId);
-                            //may delete the UserId down here
-                            firebaseDatabase.getInstance().getReference("Category").child(UserId).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
+                            firebaseDatabase.getInstance().getReference("Category").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressDialog.dismiss();
                                     Toast.makeText(AddCategoryPage.this, "Category added successfully", Toast.LENGTH_SHORT).show();
+                                    //add finish the page after adding the category successfully
+                                    finish();
                                 }
                             });
                         }
@@ -196,7 +205,6 @@ public class AddCategoryPage extends AppCompatActivity {
                 }
             });
         }
-
     }
 
     private void onSelectImageClick(View v) {
