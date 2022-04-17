@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fyp.product.CategoryPage;
 import com.google.firebase.database.DatabaseReference;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
@@ -52,7 +52,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(context,CategoryPage.class);
+                Intent intent=new Intent(context, CategoryPage.class);
 //                intent.putExtra("Category",category.getRandomUID());
 //                intent.putExtra("UserId",category.getUserId());
 

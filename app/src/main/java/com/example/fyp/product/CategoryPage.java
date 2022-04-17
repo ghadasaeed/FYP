@@ -1,53 +1,35 @@
-package com.example.fyp;
-
-import static java.security.AccessController.getContext;
+package com.example.fyp.product;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.fyp.HomePage;
+import com.example.fyp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class CategoryPage extends AppCompatActivity {
 
     TabLayout tabLayout;
-    RecyclerView recyclerView;
     FloatingActionButton addButton;
     ImageView Backbtn;
-    DatabaseReference dataaa, databaseReference;
-
-    SearchView searchView;
-    private List<UpdateProductModel> updateProductModelList;//
     float v=0;
     ViewPager viewPager ;
     private categoryAdapter adapter;
-    String Email,Password;
-
     categoryAdapter2 adapter2;
+    SearchView searchView;
 
+  //  DatabaseReference dataaa, databaseReference;
+  //  private List<UpdateProductModel> updateProductModelList;//
+   // String Email,Password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +38,16 @@ public class CategoryPage extends AppCompatActivity {
         setContentView(R.layout.activity_category_page);
 
         tabLayout = findViewById(R.id.tab_layout);
-
-//        recyclerView = findViewById(R.id.recyclerViews);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         viewPager =findViewById(R.id.view_pager);
-        addButton = findViewById(R.id.addButton);
         tabLayout.addTab(tabLayout.newTab().setText("Fresh"));
         tabLayout.addTab(tabLayout.newTab().setText("EXP"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Backbtn = findViewById(R.id.backbtn);
+        addButton = findViewById(R.id.addButton);
 
+        //        recyclerView = findViewById(R.id.recyclerViews);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        updateProductModelList = new ArrayList<>();
 //        adapter2 = new categoryAdapter2(this,updateProductModelList);
 //        recyclerView.setAdapter(adapter2);
@@ -155,9 +135,6 @@ public class CategoryPage extends AppCompatActivity {
         });
 
 
-
-
-
         final categoryAdapter adapter = new categoryAdapter(getSupportFragmentManager(),this, tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
@@ -185,9 +162,6 @@ public class CategoryPage extends AppCompatActivity {
         tabLayout.setAlpha(v);
 
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
-
-
-
 
     }
 

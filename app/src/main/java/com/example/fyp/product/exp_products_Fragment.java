@@ -1,4 +1,4 @@
-package com.example.fyp;
+package com.example.fyp.product;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.fyp.R;
 
 public class exp_products_Fragment extends Fragment {
 

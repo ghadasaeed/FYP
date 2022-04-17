@@ -1,4 +1,4 @@
-package com.example.fyp;
+package com.example.fyp.product;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,39 +12,53 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.fyp.R;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class categoryAdapter2 extends RecyclerView.Adapter<categoryAdapter2.MyViewHolder> {
 
 
     Context context;
-    ArrayList<UpdateProductModel> list;
-//    DatabaseReference databaseReference;
-    DatabaseReference dataaa, databaseReference;
-//    String userid;
+    List<ProductDetails> list;
+    private int width, height;
+    DatabaseReference databaseReference;
+public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-    public categoryAdapter2(Context context, ArrayList<UpdateProductModel> list) {
+    TextView ProductName,Rday;
+    ImageView imageView;
+    View itemView1;
+
+    public MyViewHolder(@NonNull View itemView) {
+        super(itemView);
+
+        imageView = (ImageView)itemView.findViewById(R.id.productImg1);
+        ProductName = (TextView)itemView.findViewById(R.id.productName1);
+        Rday = (TextView)itemView.findViewById(R.id.remainingDays1);
+        itemView1 = itemView;
+    }
+}
+
+    public categoryAdapter2(Context context, List<ProductDetails> list) {
         this.context = context;
         this.list = list;
+        this.width = 160;
+        this.height = 100;
     }
-
-//    public categoryAdapter2(String userid) {
-//        this.userid = userid;
-//
-//    }
+    public categoryAdapter2(Context context, List<ProductDetails> list, int _width, int _height) {
+        this.context = context;
+        this.list = list;
+        this.width = 160;
+        this.height = 100;
+    }
 
     @NonNull
     @Override
     public categoryAdapter2.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.product_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list, parent, false);
         return new categoryAdapter2.MyViewHolder(v);
 
 //        userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -90,12 +104,11 @@ public class categoryAdapter2 extends RecyclerView.Adapter<categoryAdapter2.MyVi
 
 //        final UpdateProductModel updateProductModel = updateProductModellist.get(position);
         try{
-        final UpdateProductModel updateProductModel = list.get(position);
+        final ProductDetails updateProductModel = list.get(position);
         Glide.with(context).load(updateProductModel.getImageURL()).into(holder.imageView);
 
         holder.ProductName.setText(updateProductModel.getProductName());
-        holder.Rday.setText(updateProductModel.getProductEXP());
-
+        holder.Rday.setText(updateProductModel.getProductEXP()+"Day");
         updateProductModel.getRandomUID();
         updateProductModel.getUserId();
 
@@ -103,7 +116,7 @@ public class categoryAdapter2 extends RecyclerView.Adapter<categoryAdapter2.MyVi
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, CategoryPage.class);
+                Intent intent = new Intent(context, AddProductPage.class);
 //                intent.putExtra("Category",category.getRandomUID());
 //                intent.putExtra("UserId",category.getUserId());
 
@@ -121,20 +134,6 @@ public class categoryAdapter2 extends RecyclerView.Adapter<categoryAdapter2.MyVi
         return list.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Color, ProductName,Rday;
-        ImageView imageView;
-
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            imageView = itemView.findViewById(R.id.productImg1);
-            ProductName = itemView.findViewById(R.id.productName1);
-            Rday = itemView.findViewById(R.id.remainingDays1);
-
-        }
-    }
 }
 

@@ -1,4 +1,4 @@
-package com.example.fyp;
+package com.example.fyp.product;
 
 
 import com.journeyapps.barcodescanner.CaptureActivity;

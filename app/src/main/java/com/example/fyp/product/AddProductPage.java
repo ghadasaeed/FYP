@@ -1,8 +1,7 @@
-package com.example.fyp;
+package com.example.fyp.product;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
@@ -17,7 +16,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -29,10 +27,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.load.model.Model;
+import com.example.fyp.R;
+import com.example.fyp.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -48,12 +47,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.google.gson.JsonObject;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -71,7 +66,7 @@ public class AddProductPage extends AppCompatActivity {
     String RandomUId;
     String Email,Password;
     Spinner ShelfLife;
-    String productCategory,productName, barcode, productExp, alarm,shelfLife;
+    private String productCategory,productName, barcode, productExp, alarmState,shelfLife;
     //need to extract the product category from the title of the category
     ImageButton imageButton;
     ImageView Backbtn;
@@ -158,7 +153,7 @@ public class AddProductPage extends AppCompatActivity {
                             productName = ProductName.getEditText().getText().toString().trim();
                             barcode = ProductBarCode.getEditText().getText().toString().trim();
                             productExp = ProductEXP.getEditText().getText().toString().trim();
-                            alarm = AlarmState.getText().toString().trim();
+                            alarmState = AlarmState.getText().toString().trim();
 
                             if (isValid()) {
                                 uploadImage();
@@ -233,7 +228,7 @@ public class AddProductPage extends AppCompatActivity {
                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            ProductDetails info = new ProductDetails( productName, barcode, productExp, alarm, shelfLife, String.valueOf(uri), RandomUId, UserId);
+                            ProductDetails info = new ProductDetails( productName, barcode, productExp, alarmState, shelfLife, String.valueOf(uri), RandomUId, UserId);
                             firebaseDatabase.getInstance().getReference("ProductDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUId)
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
