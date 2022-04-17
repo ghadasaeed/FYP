@@ -14,7 +14,7 @@
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_add_members_page.xml" value="0.335" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_add_product_page.xml" value="0.335" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_barcode_scanning_page.xml" value="0.2734375" />
-        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_category_page.xml" value="0.3268698060941828" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_category_page.xml" value="0.32294617563739375" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_group_page.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_groups_page.xml" value="0.32135416666666666" />
@@ -25,7 +25,7 @@
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_members_page.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_register.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_user_password.xml" value="0.1" />
-        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/category_list.xml" value="0.3164102564102564" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/category_list.xml" value="0.1" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/content_category_page.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/content_main.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_exp_products_.xml" value="0.3072916666666667" />
@@ -34,6 +34,8 @@
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_group__exp_products.xml" value="0.3072916666666667" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_group_freash_products.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/fragment_second.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/group_list.xml" value="0.2765625" />
+        <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/product_list.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/layout/settings_activity.xml" value="0.29444444444444445" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/menu/menu_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/surface/AndroidStudioProjects/FYP/app/src/main/res/menu/options_menu.xml" value="0.375" />

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -37,13 +38,15 @@ public class CategoryPage extends AppCompatActivity {
     FloatingActionButton addButton;
     ImageView Backbtn;
     DatabaseReference dataaa, databaseReference;
-    SwipeRefreshLayout swipeRefreshLayout;
+
     SearchView searchView;
     private List<UpdateProductModel> updateProductModelList;//
     float v=0;
     ViewPager viewPager ;
-    private categoryAdapter adapter1;
+    private categoryAdapter adapter;
     String Email,Password;
+
+    categoryAdapter2 adapter2;
 
 
     @Override
@@ -53,16 +56,61 @@ public class CategoryPage extends AppCompatActivity {
         setContentView(R.layout.activity_category_page);
 
         tabLayout = findViewById(R.id.tab_layout);
-//        recyclerView = findViewById(R.id.recycle_menu);
+
+//        recyclerView = findViewById(R.id.recyclerViews);
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         viewPager =findViewById(R.id.view_pager);
         addButton = findViewById(R.id.addButton);
         tabLayout.addTab(tabLayout.newTab().setText("Fresh"));
         tabLayout.addTab(tabLayout.newTab().setText("EXP"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Backbtn = findViewById(R.id.backbtn);
-        updateProductModelList = new ArrayList<>();
+
+//        updateProductModelList = new ArrayList<>();
+//        adapter2 = new categoryAdapter2(this,updateProductModelList);
+//        recyclerView.setAdapter(adapter2);
+
+
+        // recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+//        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        databaseReference = FirebaseDatabase.getInstance().getReference("UpdateProductModel").child(userid);
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                updateProductModelList.clear();
+//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+//
+//                    UpdateProductModel updateProductModel = dataSnapshot1.getValue(UpdateProductModel.class);
+//                    updateProductModelList.add(updateProductModel);
+//
+//
+//
+//                }
+////                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+////                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+////                        Category category = snapshot1.getValue(Category.class);
+////                        list.add(category);
+////                    }
+////                }
+//
+//
+////                adapter2.notifyDataSetChanged();
+////                adapter = new CustomerHomeAdapter(getContext(), updateDishModelList);
+////                recyclerView.setAdapter(adapter);
+//
+////                homeAdapter = new HomeAdapter(this,list);
+////                recyclerView.setAdapter(homeAdapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
 
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

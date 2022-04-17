@@ -72,8 +72,8 @@
         android:paddingRight="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.241"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintVertical_bias="0.308"
+        tools:layout_editor_absoluteX="-100dp">
 
         <ImageButton
             android:id="@+id/imageupload"
@@ -82,7 +82,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="#F7F8FB"
-            android:src="@drawable/ic_baseline_group_24"/>
+            android:src="@drawable/ic_baseline_group_24" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -101,8 +101,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
     </LinearLayout>
