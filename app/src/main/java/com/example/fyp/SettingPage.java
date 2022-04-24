@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingPage extends AppCompatActivity {
     ImageView Backbtn;
-    LinearLayout  LogOut, Help, PrivacyPolicy;
+    LinearLayout  LogOut, Help, PrivacyPolicy,sendFeedback,exportToExcel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,21 @@ public class SettingPage extends AppCompatActivity {
         LogOut = (LinearLayout)findViewById(R.id.logout_layout);
         Help = (LinearLayout)findViewById(R.id.help);
         PrivacyPolicy = (LinearLayout)findViewById(R.id.policy);
+        sendFeedback = (LinearLayout)findViewById(R.id.sendFeedback);
+        exportToExcel = (LinearLayout)findViewById(R.id.exportToExcel);
+
+        exportToExcel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToWebPage("https://sites.google.com/view/exportinventorytoexcel/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9");
+            }
+        });
+        sendFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToWebPage("https://sites.google.com/view/helppageforinventoryapp/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9");
+            }
+        });
 
        Help.setOnClickListener(new View.OnClickListener() {
             @Override

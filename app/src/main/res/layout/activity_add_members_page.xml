@@ -49,94 +49,149 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/info"
-        android:layout_width="291dp"
-        android:layout_height="73dp"
-        android:lineSpacingExtra="7sp"
-        android:text="Share products and expiry dates with other members."
-        android:textAlignment="center"
-        android:textColor="#24243F"
-        android:textSize="16sp"
+<!--    <TextView-->
+<!--        android:id="@+id/info"-->
+<!--        android:layout_width="291dp"-->
+<!--        android:layout_height="73dp"-->
+<!--        android:lineSpacingExtra="7sp"-->
+<!--        android:text="Share products and expiry dates with other members."-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#24243F"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"-->
+<!--        app:layout_constraintVertical_bias="0.111" />-->
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/memberCard1"-->
+<!--        android:layout_width="328dp"-->
+<!--        android:layout_height="85dp"-->
+<!--        android:layout_rowWeight="1"-->
+<!--        android:layout_columnWeight="1"-->
+<!--        android:layout_margin="12dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:cardCornerRadius="25dp"-->
+<!--        app:cardElevation="6dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.493"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/info"-->
+<!--        app:layout_constraintVertical_bias="0.053">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="16dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/link"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_gravity="left"-->
+<!--                android:src="@drawable/ic_baseline_link_24" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentLeft="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:text="Share Invite Link "-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="#24243F"-->
+<!--                android:textSize="16sp"/>-->
+
+<!--        </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/or"-->
+<!--        android:layout_width="291dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:lineSpacingExtra="7sp"-->
+<!--        android:text="OR"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#24243F"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/memberCard1"-->
+<!--        app:layout_constraintVertical_bias="0.112" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="202dp"-->
+<!--        android:layout_height="207dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/or"-->
+
+<!--        app:layout_constraintVertical_bias="0.33"-->
+<!--        app:srcCompat="@drawable/ic_baseline_qr_code_24" />-->
+    <Button
+        android:id="@+id/addbtn"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/button_shape"
+        android:text="Add"
+        android:textColor="#FFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintVertical_bias="0.308">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/memberCard1"
-        android:layout_width="328dp"
-        android:layout_height="85dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="12dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="25dp"
-        app:cardElevation="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info"
-        app:layout_constraintVertical_bias="0.053">
+        <ImageButton
+            android:id="@+id/imageupload"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="#F7F8FB"
+            android:src="@drawable/ic_baseline_group_24" />
 
-        <LinearLayout
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/memberName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Member email"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            tools:layout_editor_absoluteX="26dp">
 
-            <ImageView
-                android:id="@+id/link"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="left"
-                android:src="@drawable/ic_baseline_link_24" />
-
-            <TextView
-                android:id="@+id/text3"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:text="Share Invite Link "
-                android:textAlignment="center"
-                android:textColor="#24243F"
-                android:textSize="16sp"/>
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="291dp"
-        android:layout_height="wrap_content"
-        android:lineSpacingExtra="7sp"
-        android:text="OR"
-        android:textAlignment="center"
-        android:textColor="#24243F"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/memberCard1"
-        app:layout_constraintVertical_bias="0.112" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="202dp"
-        android:layout_height="207dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/or"
-
-        app:layout_constraintVertical_bias="0.33"
-        app:srcCompat="@drawable/ic_baseline_qr_code_24" />
-
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

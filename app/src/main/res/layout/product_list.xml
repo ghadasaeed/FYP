@@ -38,7 +38,7 @@ android:orientation="vertical">
         android:layout_width="64dp"
         android:layout_height="61dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="140dp"
+        android:layout_marginLeft="100dp"
         app:cardCornerRadius="12dp"
         app:cardBackgroundColor="#F5F7FA"
         >

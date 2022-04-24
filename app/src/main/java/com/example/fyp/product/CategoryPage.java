@@ -1,5 +1,7 @@
 package com.example.fyp.product;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,9 @@ import com.example.fyp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CategoryPage extends AppCompatActivity {
 
@@ -27,9 +32,6 @@ public class CategoryPage extends AppCompatActivity {
     categoryAdapter2 adapter2;
     SearchView searchView;
 
-  //  DatabaseReference dataaa, databaseReference;
-  //  private List<UpdateProductModel> updateProductModelList;//
-   // String Email,Password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,75 +47,6 @@ public class CategoryPage extends AppCompatActivity {
         Backbtn = findViewById(R.id.backbtn);
         addButton = findViewById(R.id.addButton);
 
-        //        recyclerView = findViewById(R.id.recyclerViews);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        updateProductModelList = new ArrayList<>();
-//        adapter2 = new categoryAdapter2(this,updateProductModelList);
-//        recyclerView.setAdapter(adapter2);
-
-
-        // recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-//        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        databaseReference = FirebaseDatabase.getInstance().getReference("UpdateProductModel").child(userid);
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                updateProductModelList.clear();
-//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-//
-//                    UpdateProductModel updateProductModel = dataSnapshot1.getValue(UpdateProductModel.class);
-//                    updateProductModelList.add(updateProductModel);
-//
-//
-//
-//                }
-////                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-////                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-////                        Category category = snapshot1.getValue(Category.class);
-////                        list.add(category);
-////                    }
-////                }
-//
-//
-////                adapter2.notifyDataSetChanged();
-////                adapter = new CustomerHomeAdapter(getContext(), updateDishModelList);
-////                recyclerView.setAdapter(adapter);
-//
-////                homeAdapter = new HomeAdapter(this,list);
-////                recyclerView.setAdapter(homeAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-//        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        dataaa = FirebaseDatabase.getInstance().getReference("User").child(userid);
-//
-//        dataaa.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                User userc = dataSnapshot.getValue(User.class);
-//                Email = userc.getEmailId();
-//                Password = userc.getPassword();
-//                UserProducts();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
         Backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,7 +60,7 @@ public class CategoryPage extends AppCompatActivity {
             public void onClick(View view) {
 
 
-               // Intent intent = new Intent(CategoryPage.this, BarcodeScanningPage.class);
+             //   Intent intent = new Intent(CategoryPage.this, BarcodeScanningPage.class);
                Intent intent = new Intent(CategoryPage.this, AddProductPage.class);
 
                 startActivity(intent);
@@ -163,28 +96,34 @@ public class CategoryPage extends AppCompatActivity {
 
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
 
-    }
 
-//    private void UserProducts(){
-//        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ProductDetails").child(useridd);
-//        databaseReference.addValueEventListener(new ValueEventListener() {
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 //            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                updateProductModelList.clear();
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    UpdateProductModel updateProductModel = snapshot.getValue(UpdateProductModel.class);
-//                    updateProductModelList.add(updateProductModel);
-//
-//                }
-////                adapter1 = new categoryAdapter(getContext(), updateProductModelList);
-////                ViewPager.setAdapter(adapter1);
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
 //            }
 //
 //            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
+//            public boolean onQueryTextChange(String newText) {
+//                search(newText);
+//                return true;
 //            }
 //        });
+    }
+
+//    private void search(final String searchtext) {
+//
+//        ArrayList<ProductDetails> mylist = new ArrayList<>();
+//        for (ProductDetails object : productList ) {
+//            if (object.getProductName().toLowerCase().contains(searchtext.toLowerCase())) {
+//                mylist.add(object);
+//            }
+//        }
+//        adapter2 = new categoryAdapter2(this, mylist);
+//        viewPager.setAdapter(adapter);
+//
 //    }
+
+
+
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".product.AddProductPage">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -34,7 +34,7 @@
             android:layout_height="43dp"
             android:fontFamily="@font/work_sans_semibold"
             android:lineSpacingExtra="7sp"
-            android:text="Add Product"
+            android:text="Edit Product"
             android:textAlignment="center"
             android:textColor="#24243F"
             android:textSize="30sp"
@@ -67,21 +67,36 @@
 
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/addbtn"
-        android:layout_width="300dp"
-        android:layout_height="0dp"
+        android:id="@+id/deletebtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/button_shape"
-        android:text="Add"
+        android:text="Delete"
         android:textColor="#FFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/editbtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/button_shape"
+        android:text="Edit"
+        android:textColor="#FFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toEndOf="@+id/deletebtn" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -145,10 +160,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date" />
-<!--                android:onClick="openDatePicker"-->
+            <!--                android:onClick="openDatePicker"-->
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <Switch
             android:id="@+id/alarm"
@@ -182,54 +196,54 @@
                 android:textColor="#24243F"/>
 
 
-                <Spinner
-                    android:id="@+id/shelfLife"
-                    android:layout_width="162dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="12dp"
-                    android:entries="@array/ShelfLife"
-                    android:background="#F7F8FB"
-                    android:outlineSpotShadowColor="@color/colorAccent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView"
-                    app:layout_constraintVertical_bias="0.04" />
+            <Spinner
+                android:id="@+id/shelfLife"
+                android:layout_width="162dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:entries="@array/ShelfLife"
+                android:background="#F7F8FB"
+                android:outlineSpotShadowColor="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.04" />
 
-            </LinearLayout>
+        </LinearLayout>
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
+        <!--        <RelativeLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/work_sans_semibold"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:paddingLeft="29dp"-->
-<!--                android:paddingRight="24dp"-->
-<!--                android:text="Shelf-Life"-->
-<!--                android:textColor="#24243F"-->
-<!--                android:textSize="16dp" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:fontFamily="@font/work_sans_semibold"-->
+        <!--                android:layout_marginTop="10dp"-->
+        <!--                android:paddingLeft="29dp"-->
+        <!--                android:paddingRight="24dp"-->
+        <!--                android:text="Shelf-Life"-->
+        <!--                android:textColor="#24243F"-->
+        <!--                android:textSize="16dp" />-->
 
-<!--            <GridLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:alignmentMode="alignMargins"-->
-<!--                android:columnCount="4"-->
-<!--                android:columnOrderPreserved="false"-->
-<!--                android:rowCount="3">-->
+        <!--            <GridLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:alignmentMode="alignMargins"-->
+        <!--                android:columnCount="4"-->
+        <!--                android:columnOrderPreserved="false"-->
+        <!--                android:rowCount="3">-->
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/imageView"-->
-<!--                    android:layout_width="200dp"-->
-<!--                    android:layout_height="149dp"-->
-<!--                    android:layout_marginStart="150dp"-->
-<!--                    app:srcCompat="@drawable/shelf" />-->
-<!--            </GridLayout>-->
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/imageView"-->
+        <!--                    android:layout_width="200dp"-->
+        <!--                    android:layout_height="149dp"-->
+        <!--                    android:layout_marginStart="150dp"-->
+        <!--                    app:srcCompat="@drawable/shelf" />-->
+        <!--            </GridLayout>-->
 
-<!--        </RelativeLayout>-->
+        <!--        </RelativeLayout>-->
 
 
 
@@ -249,65 +263,3 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-<!--page title  + button-->
-<!--<TableRow-->
-<!--android:id="@+id/hr"-->
-<!--android:layout_width="306dp"-->
-<!--android:layout_height="1dp"-->
-<!--android:layout_marginTop="24dp"-->
-<!--android:background="#4A736F6F"-->
-<!--app:layout_constraintEnd_toEndOf="parent"-->
-<!--app:layout_constraintHorizontal_bias="0.497"-->
-<!--app:layout_constraintStart_toStartOf="parent"-->
-<!--    />-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--tools:context=".AddProductPage">-->
-
-<!--<LinearLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_marginTop="28dp"-->
-<!--    android:gravity="center"-->
-<!--    android:orientation="vertical"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toTopOf="parent">-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/add"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="43dp"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:fontFamily="@font/work_sans_semibold"-->
-<!--        android:lineSpacingExtra="7sp"-->
-<!--        android:text="Add Product"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColor="#24243F"-->
-<!--        android:textSize="30sp"-->
-<!--        android:translationY="-3.52sp" />-->
-
-<!--</LinearLayout>-->
-
-
-
-
-<!--<Button-->
-<!--    android:id="@+id/postbtn"-->
-<!--    android:layout_width="300dp"-->
-<!--    android:layout_height="0dp"-->
-<!--    android:layout_gravity="center"-->
-<!--    android:layout_marginBottom="36dp"-->
-<!--    android:background="@drawable/button_shape"-->
-<!--    android:text="Add"-->
-<!--    android:textColor="#FFFF"-->
-<!--    android:textSize="18sp"-->
-<!--    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintHorizontal_bias="0.495"-->
-<!--    app:layout_constraintStart_toStartOf="parent" />-->
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

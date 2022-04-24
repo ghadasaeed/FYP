@@ -61,41 +61,6 @@ public static class MyViewHolder extends RecyclerView.ViewHolder {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list, parent, false);
         return new categoryAdapter2.MyViewHolder(v);
 
-//        userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        databaseReference = FirebaseDatabase.getInstance().getReference("UpdateProductModel").child(userid);
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                list.clear();
-//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-//
-//                    UpdateProductModel updateProductModel = dataSnapshot1.getValue(UpdateProductModel.class);
-//                    list.add(updateProductModel);
-//
-//
-//
-//                }
-////                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-////                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-////                        Category category = snapshot1.getValue(Category.class);
-////                        list.add(category);
-////                    }
-////                }
-//
-//
-////                adapter2.notifyDataSetChanged();
-////                adapter = new CustomerHomeAdapter(getContext(), updateDishModelList);
-////                recyclerView.setAdapter(adapter);
-//
-////                homeAdapter = new HomeAdapter(this,list);
-////                recyclerView.setAdapter(homeAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
     }
 

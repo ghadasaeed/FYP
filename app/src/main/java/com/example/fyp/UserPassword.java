@@ -81,8 +81,8 @@ public class UserPassword extends AppCompatActivity {
                                                 if (task.isSuccessful()) {
 
                                                     String userid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                                    FirebaseDatabase.getInstance().getReference("Customer").child(userid).child("Password").setValue(ne);
-                                                    FirebaseDatabase.getInstance().getReference("Customer").child(userid).child("ConfirmPassword").setValue(conf);
+                                                    FirebaseDatabase.getInstance().getReference("User").child(userid).child("Password").setValue(ne);
+                                                    FirebaseDatabase.getInstance().getReference("User").child(userid).child("ConfirmPassword").setValue(conf);
 
                                                     Toast.makeText(UserPassword.this, "password updated", Toast.LENGTH_SHORT).show();
                                                 } else {

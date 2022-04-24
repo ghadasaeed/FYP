@@ -18,7 +18,6 @@ public class User {
     public String getPassword() {
         return Password;
     }
-
     public String getConfirmPassword() {
         return ConfirmPassword;
     }

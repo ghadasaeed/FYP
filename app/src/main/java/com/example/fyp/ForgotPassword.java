@@ -37,7 +37,8 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                FAuth.sendPasswordResetEmail(forgetpassword.getEditText().getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                FAuth.sendPasswordResetEmail(forgetpassword.getEditText().getText().toString()).
+                        addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {

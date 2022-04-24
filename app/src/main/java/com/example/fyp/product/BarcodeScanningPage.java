@@ -28,8 +28,16 @@ public class BarcodeScanningPage extends AppCompatActivity {
         integrator.setCaptureActivity(CaptureAct.class);
         integrator.setOrientationLocked(false);
         integrator.setDesiredBarcodeFormats (IntentIntegrator.ALL_CODE_TYPES);
+//        integrator.setNegativeButton("finish", new DialogInterface.OnClickListener(){
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        finish();
+//                    }
+//                });
         integrator.setPrompt("Scanning Code");
         integrator.initiateScan();
+
+
     }
 
     @Override

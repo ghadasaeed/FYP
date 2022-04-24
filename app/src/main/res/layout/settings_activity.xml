@@ -90,7 +90,7 @@
             android:background="@color/lightgray" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/exportToExcel"
+            android:id="@+id/exportToExcelcard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="5dp">
@@ -102,7 +102,8 @@
                 android:layout_marginBottom="5dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="6dp">
+                android:padding="6dp"
+                android:id="@+id/exportToExcel">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,12 +188,13 @@
             android:background="@color/lightgray" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/sendFeedback"
+            android:id="@+id/sendFeedbackcard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="5dp">
 
             <LinearLayout
+                android:id="@+id/sendFeedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
